@@ -1,248 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Anubhab Panda - Portfolio</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anubhab Panda — Analyst | Researcher | Innovator</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        margin: 0;
-        background: linear-gradient(120deg, #fdfbfb, #ebedee);
-        color: #333;
-        scroll-behavior: smooth;
-    }
-    header {
-        background: linear-gradient(135deg, #ff7e5f, #feb47b);
-        color: white;
-        padding: 80px 20px;
-        text-align: center;
-        animation: fadeIn 2s ease-in-out;
-    }
-    header h1 {
-        font-size: 3em;
-        margin: 0;
-        animation: slideInDown 1s ease;
-    }
-    header p {
-        font-size: 1.3em;
-        opacity: 0.9;
-    }
-    nav {
-        background: white;
-        padding: 12px;
-        position: sticky;
-        top: 0;
-        border-bottom: 1px solid #ddd;
-        text-align: center;
-        z-index: 100;
-    }
-    nav a {
-        margin: 0 15px;
-        text-decoration: none;
-        color: #ff7e5f;
-        font-weight: bold;
-        transition: color 0.3s;
-    }
-    nav a:hover {
-        color: #d94f2d;
-    }
-    section {
-        padding: 50px 20px;
-        max-width: 1000px;
-        margin: auto;
-    }
-    h2 {
-        text-align: center;
-        margin-bottom: 30px;
-        color: #ff7e5f;
-        font-size: 2em;
-    }
-    .skills {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 20px;
-        text-align: center;
-    }
-    .skill-box {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .skill-box:hover {
-        transform: translateY(-5px) scale(1.05);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .experience-card {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
-        margin-bottom: 20px;
-    }
-    .experience-card:hover {
-        transform: translateY(-5px);
-    }
-    .badge {
-        display: inline-block;
-        background: #ff7e5f;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 0.8em;
-    }
-    blockquote {
-        font-style: italic;
-        color: #555;
-        border-left: 5px solid #ff7e5f;
-        padding-left: 15px;
-        margin: 20px auto;
-        max-width: 800px;
-    }
-    .contact-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        margin-top: 20px;
-    }
-    .contact-box {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 1.1em;
-        background: #fff5f0;
-        padding: 10px 15px;
-        border-radius: 8px;
-        transition: transform 0.3s;
-    }
-    .contact-box:hover {
-        transform: scale(1.05);
-    }
-    .contact-box img {
-        width: 24px;
-        height: 24px;
-    }
+  :root{
+    --bg: #0f1226;
+    --card: #161a34;
+    --text: #e9ecff;
+    --muted:#b6b9d8;
+    --brand:#7c5cff;
+    --brand-2:#23c9ff;
+    --accent:#ff7e5f;
+    --good:#37d67a;
+  }
+  /* Light mode vars will flip via .light on <html> */
+  html.light{
+    --bg:#f6f7fb;
+    --card:#ffffff;
+    --text:#1b1e34;
+    --muted:#616887;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    background: radial-gradient(1200px 600px at 10% -10%, #1f2456 0%, transparent 50%) ,
+                radial-gradient(1000px 500px at 110% 10%, #1c3a70 0%, transparent 50%),
+                var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+  }
+
+  /* ---------- Global UI ---------- */
+  a{color:var(--brand)}
+  .container{max-width:1100px; margin:auto; padding:0 20px}
+  .section{padding:70px 0}
+  h1,h2,h3{margin:0 0 12px}
+  h2{font-size:clamp(1.4rem,2.2vw,1.9rem)}
+  p{color:var(--muted); line-height:1.7}
+
+  /* ---------- Navbar ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+    background: color-mix(in oklab, var(--bg) 85%, transparent);
+    border-bottom:1px solid color-mix(in oklab, var(--text) 15%, transparent);
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 20px}
+  .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.3px}
+  .brand .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+  .nav a{color:var(--text); text-decoration:none; opacity:.9}
+  .links{display:flex; gap:18px; align-items:center}
+  .dark-toggle{
+    border:1px solid color-mix(in oklab, var(--text) 20%, transparent);
+    background:linear-gradient(135deg, color-mix(in oklab, var(--card) 85%, transparent), color-mix(in oklab, var(--card) 65%, transparent));
+    color:var(--text); border-radius:999px; padding:8px 12px; cursor:pointer; font-weight:600;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; padding:88px 0 60px; overflow:hidden;
+    background:
+      radial-gradient(650px 350px at 80% -10%, color-mix(in oklab, var(--brand) 35%, transparent) 0%, transparent 70%),
+      radial-gradient(600px 300px at -10% 20%, color-mix(in oklab, var(--brand-2) 30%, transparent) 0%, transparent 70%);
+  }
+  .hero-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:28px; align-items:center}
+  .tag{display:inline-flex; gap:8px; align-items:center; padding:6px 12px; border-radius:999px;
+       background:color-mix(in oklab, var(--card) 70%, transparent); color:var(--text); border:1px solid color-mix(in oklab, var(--text) 10%, transparent); font-weight:600; font-size:.9rem}
+  .title{font-size:clamp(2rem,4.4vw,3.2rem); line-height:1.1}
+  .title strong{background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .hero-cta{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
+  .btn{
+    border:none; cursor:pointer; font-weight:700; border-radius:12px; padding:12px 16px;
+    color:#fff; background:linear-gradient(135deg,var(--brand),var(--brand-2));
+    box-shadow:0 10px 30px color-mix(in oklab, var(--brand) 30%, transparent);
+  }
+  .btn.secondary{background:linear-gradient(135deg,#ff9a7a,#ff7e5f)}
+  .illus{
+    aspect-ratio:1/1; border-radius:18px; background:linear-gradient(135deg, color-mix(in oklab, var(--card) 85%, transparent), color-mix(in oklab, var(--card) 65%, transparent));
+    border:1px solid color-mix(in oklab, var(--text) 12%, transparent);
+    display:grid; place-items:center; position:relative; overflow:hidden;
+  }
+  .float{
+    position:absolute; inset:auto; width:90px; height:90px; border-radius:18px;
+    background:linear-gradient(135deg, var(--brand), color-mix(in oklab, var(--brand-2) 70%, var(--brand)));
+    opacity:.25; animation:float 8s ease-in-out infinite;
+  }
+  .f1{top:12%; right:-20px; animation-delay:0s}
+  .f2{bottom:-20px; left:12%; width:120px; height:120px; animation-delay:1.2s; border-radius:50%}
+  @keyframes float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+
+  /* ---------- Icon row ---------- */
+  .tool-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:16px}
+  .tool{display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; background:var(--card);
+        border:1px solid color-mix(in oklab, var(--text) 10%, transparent); color:var(--text); font-weight:600}
+  .tool img{width:18px; height:18px}
+
+  /* ---------- Cards ---------- */
+  .grid{display:grid; gap:18px}
+  .cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr} .cols-3,.cols-2{grid-template-columns:1fr} }
+  .card{
+    background:var(--card); padding:18px; border-radius:14px;
+    border:1px solid color-mix(in oklab, var(--text) 10%, transparent);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .card:hover{ transform:translateY(-6px); box-shadow:0 16px 40px color-mix(in oklab, var(--brand) 18%, transparent) }
+  .chip{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; font-weight:700; font-size:.78rem;
+        background:linear-gradient(135deg, color-mix(in oklab, var(--brand) 20%, transparent), color-mix(in oklab, var(--brand-2) 20%, transparent));
+        color:var(--text); border:1px solid color-mix(in oklab, var(--text) 10%, transparent)}
+
+  /* ---------- Timelines ---------- */
+  .timeline{position:relative; padding-left:22px}
+  .timeline:before{content:""; position:absolute; left:7px; top:2px; bottom:2px; width:2px; background:linear-gradient(var(--brand),transparent)}
+  .dot{width:12px; height:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); border-radius:50%; display:inline-block; margin-right:8px}
+
+  /* ---------- Achievements ---------- */
+  .trophy{font-size:24px; margin-right:8px}
+  .badge{display:inline-block; padding:6px 10px; border-radius:8px; background:color-mix(in oklab, var(--good) 25%, var(--card)); color:var(--text); font-weight:700}
+
+  /* ---------- Contact ---------- */
+  .contact{
+    display:grid; grid-template-columns:1.2fr .8fr; gap:18px; align-items:stretch
+  }
+  @media (max-width:900px){ .contact{grid-template-columns:1fr} }
+  .contact-panel{
+    display:grid; gap:12px; background:var(--card); border:1px solid color-mix(in oklab, var(--text) 10%, transparent);
+    padding:18px; border-radius:14px
+  }
+  .contact-item{display:flex; gap:12px; align-items:center; padding:12px; border-radius:12px; background:color-mix(in oklab, var(--card) 80%, transparent)}
+  .contact-item img{width:22px; height:22px}
+  .cta-card{
+    background:linear-gradient(135deg,#ffb199,#ff7e5f);
+    color:#1b1e34; border:none
+  }
+  .cta-card h3{color:#1b1e34}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:.6s ease}
+  .reveal.show{opacity:1; transform:none}
 </style>
 </head>
 <body>
-
-<header>
-    <h1>Anubhab Panda</h1>
-    <p>HR Professional | Data Enthusiast | Creative Thinker</p>
-</header>
-
-<nav>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#achievements">Achievements</a>
-    <a href="#extra">Extra</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        I am an aspiring HR professional with strong analytical and creative skills. 
-        My work spans recruitment, data analytics, and innovative project ideas like InkBlink. 
-        I have interned at Wonton Consulting Private Limited and Top Trove Foundation, conducted 
-        research on sodium-ion batteries, and mastered tools like Power BI, Python, Excel, R Studio, and SQL.
-    </p>
-    <blockquote>"To match professionals with the right opportunities and help businesses find talent that drives growth."</blockquote>
-</section>
-
-<section id="education">
-    <h2>Education</h2>
-    <ul>
-        <li><b>B.Com</b>, Jain University – CGPA: 8.6 (2026)</li>
-        <li><b>12th</b>, Modi School, Rajkot (CBSE) – 88% (2020)</li>
-        <li><b>10th</b>, Ruchika High School, Bhubaneswar (ICSE) – 80% (2022)</li>
-    </ul>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-        <div class="skill-box">Power BI</div>
-        <div class="skill-box">Python</div>
-        <div class="skill-box">Excel</div>
-        <div class="skill-box">R Studio</div>
-        <div class="skill-box">SQL</div>
-        <div class="skill-box">Canva</div>
-        <div class="skill-box">Video Editing</div>
-        <div class="skill-box">Human Resource Management</div>
-        <div class="skill-box">Communication</div>
-        <div class="skill-box">Teamwork</div>
-        <div class="skill-box">Attention to Detail</div>
-        <div class="skill-box">Professionalism</div>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner container">
+      <div class="brand"><span class="dot"></span> Anubhab Panda</div>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#edu">Education</a>
+        <a href="#exp">Experience</a>
+        <a href="#ach">Achievements</a>
+        <a href="#contact">Contact</a>
+        <button class="dark-toggle" id="modeBtn">☾ Dark</button>
+      </div>
     </div>
-</section>
+  </div>
 
-<section id="experience">
-    <h2>Experience & Internships</h2>
-    <div class="experience-card">
-        <h3>Wonton Consulting Private Limited (WCPL)</h3>
-        <span class="badge">June 2024 – Sep 2024</span>
-        <p>Handled end-to-end recruitment for client companies, from shortlisting to managing candidate engagement. Received Internship Certificate from the Director.</p>
-    </div>
-    <div class="experience-card">
-        <h3>Top Trove Foundation</h3>
-        <span class="badge">May 2024 – July 2024</span>
-        <p>Recruited HR, Marketing, and Fundraising interns; conducted telephonic and Google Meet interviews. Received a Letter of Recommendation.</p>
-    </div>
-    <div class="experience-card">
-        <h3>InkBlink</h3>
-        <span class="badge">Project Idea</span>
-        <p>Developed an innovative print delivery service for college students to reduce stationery rush.</p>
-    </div>
-</section>
-
-<section id="achievements">
-    <h2>Achievements & Certifications</h2>
-    <ul>
-        <li>Authored research paper: <i>Sodium-ion Batteries as an Alternative to Lithium-ion Batteries</i>.</li>
-        <li>Excel Skills for Business – Goldman Sachs (Forage), Sept 2024</li>
-        <li>Power BI Certification – DataCamp, Feb 2025</li>
-        <li>Investment Banking Simulation – J.P. Morgan Chase (Forage), Sept 2024</li>
-        <li>Membership – Institute of Analytics (UK)</li>
-    </ul>
-</section>
-
-<section id="extra">
-    <h2>Extra-Curricular Activities</h2>
-    <ul>
-        <li>Music Enthusiast – Trained in keyboard & harmonium</li>
-        <li>Community Service – Supported NGOs in fundraising</li>
-        <li>Creative Skills – Canva design, PowerPoint, and video editing</li>
-    </ul>
-</section>
-
-<section id="contact">
-    <h2>Contact Me</h2>
-    <div class="contact-container">
-        <div class="contact-box">
-            <img src="https://img.icons8.com/ios-filled/50/ff7e5f/new-post.png" alt="Email">
-            <span><b>Email:</b> anubhabpanda05s@gmail.com</span>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="tag">Analyst • Researcher • Innovator</span>
+        <h1 class="title">Turning <strong>data</strong> into decisions — with curiosity, clarity, and craft.</h1>
+        <p>Power BI • Python • SQL • Excel • R Studio • Visualization • Problem Solving • Storytelling</p>
+        <div class="hero-cta">
+          <a class="btn" href="#contact">Get in touch</a>
+          <a class="btn secondary" href="#exp">See experience</a>
         </div>
-        <div class="contact-box">
-            <img src="https://img.icons8.com/ios-filled/50/ff7e5f/phone.png" alt="Phone">
-            <span><b>Phone:</b> +91 9437417601</span>
-        </div>
-        <div class="contact-box">
-            <img src="https://img.icons8.com/ios-filled/50/ff7e5f/linkedin.png" alt="LinkedIn">
-            <span><b>LinkedIn:</b> linkedin.com/in/anubhab-panda</span>
-        </div>
-    </div>
-</section>
 
+        <div class="tool-row">
+          <span class="tool"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/powerbi.svg" alt="Power BI">Power BI</span>
+          <span class="tool"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/python.svg" alt="Python">Python</span>
+          <span class="tool"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftsqlserver.svg" alt="SQL">SQL</span>
+          <span class="tool"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftexcel.svg" alt="Excel">Excel</span>
+          <span class="tool"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/r.svg" alt="R">R Studio</span>
+          <span class="tool"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/canva.svg" alt="Canva">Canva</span>
+        </div>
+      </div>
+
+      <!-- Illustration card -->
+      <div class="illus">
+        <!-- Free undraw illustration -->
+        <img src="https://undraw.cloudflareavatars.com/illustrations/analytics.svg" alt="Analytics illustration" style="width:85%; max-width:440px; filter:drop-shadow(0 20px 40px rgba(0,0,0,.25));">
+        <span class="float f1"></span>
+        <span class="float f2"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container grid cols-2">
+      <div class="card reveal">
+        <h2>About Me</h2>
+        <p>
+          I’m Anubhab, an <b>Analyst</b> who enjoys finding patterns, simplifying complexity,
+          and communicating insights with clean visuals. I’ve worked across <b>recruitment analytics</b>,
+          dashboards, and research — including a paper exploring <i>Sodium-ion batteries</i> as a
+          sustainable alternative. I like to blend <b>data sense + design sense</b>.
+        </p>
+        <p class="chip">Curious • Reliable • Detail-oriented</p>
+      </div>
+      <div class="card reveal">
+        <h2>What I work with</h2>
+        <div class="grid cols-3" style="margin-top:8px">
+          <div class="card"><b>Power BI</b><p>Create KPI dashboards & drilldowns</p></div>
+          <div class="card"><b>Python</b><p>Pandas analysis, quick EDA</p></div>
+          <div class="card"><b>SQL</b><p>Clean joins, aggregates, CTEs</p></div>
+          <div class="card"><b>Excel</b><p>Pivot tables, lookups, charts</p></div>
+          <div class="card"><b>R Studio</b><p>Basic stats & visuals</p></div>
+          <div class="card"><b>Design</b><p>Canva, decks, video bits</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="reveal">Core Skills</h2>
+      <div class="grid cols-3" style="margin-top:12px">
+        <div class="card reveal"><h3>Data Wrangling</h3><p>Cleaning, shaping, feature selection.</p><span class="badge">Python • SQL</span></div>
+        <div class="card reveal"><h3>Dashboards</h3><p>Executive KPIs, drillthroughs, storytelling.</p><span class="badge">Power BI</span></div>
+        <div class="card reveal"><h3>Analysis</h3><p>Trends, cohorts, A/B thinking, metrics.</p><span class="badge">Excel • R</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="edu" class="section">
+    <div class="container">
+      <h2 class="reveal">Education</h2>
+      <div class="card timeline reveal" style="margin-top:14px">
+        <p><span class="dot"></span><b>B.Com</b>, Jain University — <b>CGPA 8.6</b> (2026)</p>
+        <p><span class="dot"></span><b>12th</b>, Modi School, Rajkot (CBSE) — <b>88%</b> (2020)</p>
+        <p><span class="dot"></span><b>10th</b>, Ruchika High School, Bhubaneswar (ICSE) — <b>80%</b> (2022)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE & PROJECTS -->
+  <section id="exp" class="section">
+    <div class="container">
+      <h2 class="reveal">Experience & Projects</h2>
+      <div class="grid cols-3" style="margin-top:14px">
+        <div class="card reveal">
+          <img alt="Recruitment analytics" src="https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=800&auto=format&fit=crop" style="width:100%; border-radius:10px; margin-bottom:10px">
+          <h3>Wonton Consulting Pvt Ltd (WCPL)</h3>
+          <p class="muted">Jun 2024 – Sep 2024</p>
+          <p>Owned parts of the recruitment funnel; created shortlists and tracked metrics to improve conversion.</p>
+          <span class="chip">Ops metrics</span>
+        </div>
+        <div class="card reveal">
+          <img alt="Team collaboration" src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800&auto=format&fit=crop" style="width:100%; border-radius:10px; margin-bottom:10px">
+          <h3>Top Trove Foundation</h3>
+          <p class="muted">May 2024 – Jul 2024</p>
+          <p>Helped hire HR/Marketing/Fundraising interns; used structured calls & sheets to keep pipelines clean.</p>
+          <span class="chip">Process</span>
+        </div>
+        <div class="card reveal">
+          <img alt="Print delivery concept" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop" style="width:100%; border-radius:10px; margin-bottom:10px">
+          <h3>InkBlink</h3>
+          <p>Concept for on-demand print delivery for students to avoid stationery rush; scoped flows & costs.</p>
+          <span class="chip">Idea → MVP</span>
+        </div>
+        <div class="card reveal">
+          <img alt="Battery research" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" style="width:100%; border-radius:10px; margin-bottom:10px">
+          <h3>Research Paper</h3>
+          <p><i>Sodium-ion Batteries as an Alternative to Lithium-ion Batteries</i> — sustainability & cost lens.</p>
+          <span class="chip">Research</span>
+        </div>
+        <div class="card reveal">
+          <img alt="Power BI dashboard" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" style="width:100%; border-radius:10px; margin-bottom:10px">
+          <h3>Dashboards</h3>
+          <p>Designed simple BI views for outreach & funnel monitoring; focused on clarity and speed.</p>
+          <span class="chip">Power BI</span>
+        </div>
+        <div class="card reveal">
+          <img alt="Learning path" src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=800&auto=format&fit=crop" style="width:100%; border-radius:10px; margin-bottom:10px">
+          <h3>Learning</h3>
+          <p>Goldman Sachs (Forage) Excel • DataCamp Power BI • JP Morgan (Forage) IB simulation.</p>
+          <span class="chip">Certifications</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="ach" class="section">
+    <div class="container">
+      <h2 class="reveal">Achievements</h2>
+      <div class="grid cols-3" style="margin-top:14px">
+        <div class="card reveal"><span class="trophy">🏆</span><b>Institute of Analytics (UK)</b><p class="muted">Membership for analytics interest</p></div>
+        <div class="card reveal"><span class="trophy">🏅</span><b>Power BI — DataCamp</b><p class="muted">Issued Feb 2025</p></div>
+        <div class="card reveal"><span class="trophy">🥇</span><b>Excel — Goldman Sachs (Forage)</b><p class="muted">Issued Sept 2024</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container contact">
+      <div class="contact-panel reveal">
+        <h2>Contact</h2>
+        <div class="contact-item">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email">
+          <div>
+            <b>Email</b><br>
+            <a href="mailto:anubhabpanda05s@gmail.com">anubhabpanda05s@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="Phone">
+          <div>
+            <b>Phone</b><br>
+            <a href="tel:+919437417601">+91 9437417601</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+          <div>
+            <b>LinkedIn</b><br>
+            <a href="https://linkedin.com/in/anubhab-panda" target="_blank" rel="noopener">linkedin.com/in/anubhab-panda</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cta-card reveal">
+        <h3>Let’s build something useful.</h3>
+        <p>I’m interested in analytical roles, operations insights, and projects where data turns into action.</p>
+        <a class="btn" href="mailto:anubhabpanda05s@gmail.com">Email Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="section" style="padding:30px 0">
+    <div class="container" style="text-align:center; color:var(--muted); font-size:.9rem">
+      © <span id="yr"></span> Anubhab Panda — Built with HTML & CSS
+    </div>
+  </div>
+
+<script>
+  // Dark/Light toggle
+  const html = document.documentElement;
+  const btn = document.getElementById('modeBtn');
+  const mode = localStorage.getItem('mode') || 'dark';
+  if(mode === 'light'){ html.classList.add('light'); btn.textContent='☀ Light'; }
+  else { btn.textContent='☾ Dark'; }
+  btn.addEventListener('click', ()=>{
+    html.classList.toggle('light');
+    const isLight = html.classList.contains('light');
+    btn.textContent = isLight ? '☀ Light' : '☾ Dark';
+    localStorage.setItem('mode', isLight ? 'light':'dark');
+  });
+
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+    });
+  }, {threshold:.18});
+  document.querySelectorAll('.reveal, .card').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
