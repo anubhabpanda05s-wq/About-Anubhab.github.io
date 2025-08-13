@@ -36,7 +36,6 @@
         border-bottom: 1px solid #ddd;
         text-align: center;
         z-index: 100;
-        animation: fadeIn 1.5s ease;
     }
     nav a {
         margin: 0 15px;
@@ -52,14 +51,12 @@
         padding: 50px 20px;
         max-width: 1000px;
         margin: auto;
-        animation: fadeUp 1.2s ease-in-out;
     }
     h2 {
         text-align: center;
         margin-bottom: 30px;
         color: #ff7e5f;
         font-size: 2em;
-        animation: fadeIn 1.5s ease;
     }
     .skills {
         display: grid;
@@ -73,16 +70,10 @@
         border-radius: 10px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         transition: transform 0.3s, box-shadow 0.3s;
-        animation: popIn 1.2s ease-in-out;
     }
     .skill-box:hover {
         transform: translateY(-5px) scale(1.05);
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .experience-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
     }
     .experience-card {
         background: white;
@@ -90,7 +81,7 @@
         border-radius: 10px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         transition: transform 0.3s;
-        animation: fadeUp 1s ease-in-out;
+        margin-bottom: 20px;
     }
     .experience-card:hover {
         transform: translateY(-5px);
@@ -102,7 +93,6 @@
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 0.8em;
-        margin-right: 5px;
     }
     blockquote {
         font-style: italic;
@@ -111,52 +101,34 @@
         padding-left: 15px;
         margin: 20px auto;
         max-width: 800px;
-        animation: fadeIn 1.5s ease;
     }
-    form {
-        display: grid;
-        gap: 10px;
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
         background: white;
         padding: 20px;
-        border-radius: 8px;
+        border-radius: 10px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin-top: 20px;
     }
-    input, textarea {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        width: 100%;
+    .contact-box {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.1em;
+        background: #fff5f0;
+        padding: 10px 15px;
+        border-radius: 8px;
+        transition: transform 0.3s;
     }
-    button {
-        background: #ff7e5f;
-        color: white;
-        border: none;
-        padding: 12px;
-        cursor: pointer;
-        border-radius: 4px;
-        font-size: 1em;
-        transition: background 0.3s;
+    .contact-box:hover {
+        transform: scale(1.05);
     }
-    button:hover {
-        background: #d94f2d;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    @keyframes slideInDown {
-        from { transform: translateY(-50px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes popIn {
-        from { opacity: 0; transform: scale(0.9); }
-        to { opacity: 1; transform: scale(1); }
+    .contact-box img {
+        width: 24px;
+        height: 24px;
     }
 </style>
 </head>
@@ -217,22 +189,20 @@
 
 <section id="experience">
     <h2>Experience & Internships</h2>
-    <div class="experience-grid">
-        <div class="experience-card">
-            <h3>Wonton Consulting Private Limited (WCPL)</h3>
-            <span class="badge">June 2024 – Sep 2024</span>
-            <p>Handled end-to-end recruitment for client companies, from shortlisting to managing candidate engagement. Received Internship Certificate from the Director.</p>
-        </div>
-        <div class="experience-card">
-            <h3>Top Trove Foundation</h3>
-            <span class="badge">May 2024 – July 2024</span>
-            <p>Recruited HR, Marketing, and Fundraising interns; conducted telephonic and Google Meet interviews. Received a Letter of Recommendation.</p>
-        </div>
-        <div class="experience-card">
-            <h3>InkBlink</h3>
-            <span class="badge">Project Idea</span>
-            <p>Developed an innovative print delivery service for college students to reduce stationery rush.</p>
-        </div>
+    <div class="experience-card">
+        <h3>Wonton Consulting Private Limited (WCPL)</h3>
+        <span class="badge">June 2024 – Sep 2024</span>
+        <p>Handled end-to-end recruitment for client companies, from shortlisting to managing candidate engagement. Received Internship Certificate from the Director.</p>
+    </div>
+    <div class="experience-card">
+        <h3>Top Trove Foundation</h3>
+        <span class="badge">May 2024 – July 2024</span>
+        <p>Recruited HR, Marketing, and Fundraising interns; conducted telephonic and Google Meet interviews. Received a Letter of Recommendation.</p>
+    </div>
+    <div class="experience-card">
+        <h3>InkBlink</h3>
+        <span class="badge">Project Idea</span>
+        <p>Developed an innovative print delivery service for college students to reduce stationery rush.</p>
     </div>
 </section>
 
@@ -258,14 +228,21 @@
 
 <section id="contact">
     <h2>Contact Me</h2>
-    <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send</button>
-    </form>
+    <div class="contact-container">
+        <div class="contact-box">
+            <img src="https://img.icons8.com/ios-filled/50/ff7e5f/new-post.png" alt="Email">
+            <span><b>Email:</b> anubhabpanda05s@gmail.com</span>
+        </div>
+        <div class="contact-box">
+            <img src="https://img.icons8.com/ios-filled/50/ff7e5f/phone.png" alt="Phone">
+            <span><b>Phone:</b> +91 9437417601</span>
+        </div>
+        <div class="contact-box">
+            <img src="https://img.icons8.com/ios-filled/50/ff7e5f/linkedin.png" alt="LinkedIn">
+            <span><b>LinkedIn:</b> linkedin.com/in/anubhab-panda</span>
+        </div>
+    </div>
 </section>
 
 </body>
 </html>
-
