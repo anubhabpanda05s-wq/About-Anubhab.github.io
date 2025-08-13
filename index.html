@@ -8,12 +8,12 @@
     body {
         font-family: 'Segoe UI', sans-serif;
         margin: 0;
-        background: #f8f9fa;
+        background: linear-gradient(120deg, #fdfbfb, #ebedee);
         color: #333;
         scroll-behavior: smooth;
     }
     header {
-        background: linear-gradient(135deg, #007bff, #00bfff);
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
         color: white;
         padding: 80px 20px;
         text-align: center;
@@ -36,28 +36,30 @@
         border-bottom: 1px solid #ddd;
         text-align: center;
         z-index: 100;
+        animation: fadeIn 1.5s ease;
     }
     nav a {
         margin: 0 15px;
         text-decoration: none;
-        color: #007bff;
+        color: #ff7e5f;
         font-weight: bold;
         transition: color 0.3s;
     }
     nav a:hover {
-        color: #0056b3;
+        color: #d94f2d;
     }
     section {
         padding: 50px 20px;
         max-width: 1000px;
         margin: auto;
-        animation: fadeIn 1s ease-in-out;
+        animation: fadeUp 1.2s ease-in-out;
     }
     h2 {
         text-align: center;
         margin-bottom: 30px;
-        color: #007bff;
+        color: #ff7e5f;
         font-size: 2em;
+        animation: fadeIn 1.5s ease;
     }
     .skills {
         display: grid;
@@ -71,9 +73,10 @@
         border-radius: 10px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         transition: transform 0.3s, box-shadow 0.3s;
+        animation: popIn 1.2s ease-in-out;
     }
     .skill-box:hover {
-        transform: translateY(-5px);
+        transform: translateY(-5px) scale(1.05);
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .experience-grid {
@@ -87,13 +90,14 @@
         border-radius: 10px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         transition: transform 0.3s;
+        animation: fadeUp 1s ease-in-out;
     }
     .experience-card:hover {
         transform: translateY(-5px);
     }
     .badge {
         display: inline-block;
-        background: #007bff;
+        background: #ff7e5f;
         color: white;
         padding: 5px 10px;
         border-radius: 5px;
@@ -103,10 +107,11 @@
     blockquote {
         font-style: italic;
         color: #555;
-        border-left: 5px solid #007bff;
+        border-left: 5px solid #ff7e5f;
         padding-left: 15px;
         margin: 20px auto;
         max-width: 800px;
+        animation: fadeIn 1.5s ease;
     }
     form {
         display: grid;
@@ -123,7 +128,7 @@
         width: 100%;
     }
     button {
-        background: #007bff;
+        background: #ff7e5f;
         color: white;
         border: none;
         padding: 12px;
@@ -133,8 +138,10 @@
         transition: background 0.3s;
     }
     button:hover {
-        background: #0056b3;
+        background: #d94f2d;
     }
+
+    /* Animations */
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
@@ -142,6 +149,14 @@
     @keyframes slideInDown {
         from { transform: translateY(-50px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes popIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
     }
 </style>
 </head>
@@ -177,8 +192,8 @@
     <h2>Education</h2>
     <ul>
         <li><b>B.Com</b>, Jain University – CGPA: 8.6 (2026)</li>
-        <li><b>12th</b>, Modi School, Rajkot (CBSE) – 78% (2020)</li>
-        <li><b>10th</b>, Ruchika High School, Bhubaneswar (ICSE) – 74% (2022)</li>
+        <li><b>12th</b>, Modi School, Rajkot (CBSE) – 88% (2020)</li>
+        <li><b>10th</b>, Ruchika High School, Bhubaneswar (ICSE) – 80% (2022)</li>
     </ul>
 </section>
 
@@ -253,3 +268,4 @@
 
 </body>
 </html>
+
